@@ -12,10 +12,12 @@ To add and push your own changes, use the following commands:
 git add .
 git commit -m "CHANGES MADE BY ADITYA"
 git push origin main
-
+```
 
 ## 🔄 Updating After Changes from the Collaborator
 
 To sync your local copy with the latest changes made by your collaborator:
 
+```bash
 git pull origin main
+```
