@@ -1,0 +1,17 @@
+WHEN MAKING CHANGES FROM YOUR END:
+
+git add .
+
+git commit -m "CHANGES MADE BY ADITYA"
+
+git push origin main
+
+
+
+WHEN OPENING THE PROJECT AFTER CHANGES FROM OTHER COLLABORATOR:
+
+git pull origin main
+
+
+
+
