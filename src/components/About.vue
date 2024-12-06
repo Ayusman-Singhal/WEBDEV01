@@ -21,67 +21,68 @@ defineProps({
         </p>
       </div>
 
-      <!-- Mission & Vision Cards -->
-      <div class="grid md:grid-cols-2 gap-8 mb-20">
-        <div class="p-8 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all duration-300">
-          <div class="flex items-center mb-4">
-            <div class="p-2 bg-indigo-500/20 rounded-lg mr-4">
-              <svg class="w-6 h-6 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-              </svg>
-            </div>
-            <h2 class="text-2xl font-bold text-white">Our Mission</h2>
+      <!-- Moving Images Section -->
+      <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw] mb-16">
+        <div class="overflow-hidden relative">
+          <div class="flex space-x-4 animate-scroll-right">
+            <img v-for="n in 40" :key="'right-' + n" :src="`https://via.placeholder.com/300x200?text=Image+${n % 20}`" alt="Sample Image" class="w-56 h-32 object-cover rounded-lg" />
           </div>
-          <p class="text-blue-100/80 leading-relaxed">
-            To bridge the gap between students and quality education by providing accessible, personalized tutoring services that cater to individual learning needs and goals.
-          </p>
         </div>
-
-        <div class="p-8 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all duration-300">
-          <div class="flex items-center mb-4">
-            <div class="p-2 bg-purple-500/20 rounded-lg mr-4">
-              <svg class="w-6 h-6 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-              </svg>
-            </div>
-            <h2 class="text-2xl font-bold text-white">Our Vision</h2>
+        <div class="overflow-hidden relative mt-4">
+          <div class="flex space-x-4 animate-scroll-left">
+            <img v-for="n in 40" :key="'left-' + n" :src="`https://via.placeholder.com/300x200?text=Image+${n % 20}`" alt="Sample Image" class="w-56 h-32 object-cover rounded-lg" />
           </div>
-          <p class="text-blue-100/80 leading-relaxed">
-            To create a global learning community where every student has access to exceptional educational resources and mentorship for academic success.
-          </p>
         </div>
       </div>
 
-      <!-- Features Section -->
-      <div class="grid md:grid-cols-3 gap-8 mb-20">
-        <div class="feature-card">
-          <div class="icon-wrapper bg-blue-500/20">
-            <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-            </svg>
+      <!-- Mission & Features Section -->
+      <div class="max-w-7xl mx-auto mb-20">
+        <!-- Mission Statement -->
+        <div class="p-8 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 hover:border-indigo-500/30 transition-all duration-300 mb-12">
+          <div class="flex items-center mb-6">
+            <div class="p-2 bg-indigo-500/20 rounded-lg mr-4">
+              <svg class="w-8 h-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+              </svg>
+            </div>
+            <h2 class="text-3xl font-bold text-white">Our Mission</h2>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Expert Tutors</h3>
-          <p class="text-blue-100/80">Carefully vetted educators with proven track records in their subjects.</p>
+          <p class="text-blue-100/80 leading-relaxed text-lg">
+            At TutorVue, we are dedicated to revolutionizing the educational landscape by bridging the gap between students and quality education. Our mission is to provide accessible, personalized tutoring services that cater to individual learning needs and goals. We believe that every student deserves access to exceptional educational resources and mentorship, regardless of their location or background. Through our platform, we connect passionate educators with eager learners, fostering an environment where academic excellence thrives and educational dreams become reality.
+          </p>
         </div>
 
-        <div class="feature-card">
-          <div class="icon-wrapper bg-purple-500/20">
-            <svg class="w-6 h-6 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-            </svg>
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="feature-card">
+            <div class="icon-wrapper bg-blue-500/20">
+              <svg class="w-6 h-6 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">Expert Tutors</h3>
+            <p class="text-blue-100/80">Carefully vetted educators with proven track records in their subjects.</p>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Flexible Learning</h3>
-          <p class="text-blue-100/80">Choose when and how you want to learn with customizable schedules.</p>
-        </div>
 
-        <div class="feature-card">
-          <div class="icon-wrapper bg-indigo-500/20">
-            <svg class="w-6 h-6 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
+          <div class="feature-card">
+            <div class="icon-wrapper bg-purple-500/20">
+              <svg class="w-6 h-6 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">Flexible Learning</h3>
+            <p class="text-blue-100/80">Choose when and how you want to learn with customizable schedules.</p>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-2">Quality Assured</h3>
-          <p class="text-blue-100/80">Regular quality checks and feedback system to maintain high standards.</p>
+
+          <div class="feature-card">
+            <div class="icon-wrapper bg-indigo-500/20">
+              <svg class="w-6 h-6 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white mb-2">Quality Assured</h3>
+            <p class="text-blue-100/80">Regular quality checks and feedback system to maintain high standards.</p>
+          </div>
         </div>
       </div>
 
@@ -120,5 +121,31 @@ defineProps({
   border-radius: 0.5rem;
   display: inline-block;
   margin-bottom: 1rem;
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-scroll-right {
+  animation: scroll-right 15s linear infinite;
+}
+
+.animate-scroll-left {
+  animation: scroll-left 15s linear infinite;
 }
 </style>
