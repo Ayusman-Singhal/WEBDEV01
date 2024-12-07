@@ -90,7 +90,7 @@
       <!-- Join Our Team Section -->
       <div class="max-w-7xl mx-auto mb-20">
         <div class="text-center">
-          <h2 class="text-3xl font-bold text-white mb-4">Join Our Team</h2>
+          <h2 class="text-3xl font-bold text-white mb-4">Join Our <span class="text-yellow-400">Team</span></h2>
           <p class="text-blue-100/80 mb-8 text-lg">
             Be part of our mission to transform education. We're always looking for talented individuals to join our team.
           </p>
@@ -103,6 +103,103 @@
               <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
             </svg>
           </router-link>
+        </div>
+      </div>
+
+      <!-- Tutoring Categories Section -->
+      <div class="max-w-7xl mx-auto mb-20 p-8 bg-white/5 backdrop-blur-md rounded-xl border border-white/10">
+        <h2 class="text-3xl font-bold text-white mb-8 text-center">Find <span class="text-yellow-400">Tutors</span> Near You</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Column 1 -->
+          <div>
+            <a @click="handleNavigation('academics-home-tuition')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Academics Home Tuition</a>
+            <a @click="handleNavigation('accounts-tuition')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Accounts Tuition</a>
+            <a @click="handleNavigation('bollywood-dance')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Bollywood Dance Classes</a>
+            <a @click="handleNavigation('chemistry')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Chemistry Tuition</a>
+            <a @click="handleNavigation('dance')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Dance Classes</a>
+            <a @click="handleNavigation('economics')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Economics Coaching</a>
+          </div>
+          <!-- Column 2 -->
+          <div>
+            <a @click="handleNavigation('english')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">English Coaching</a>
+            <a @click="handleNavigation('flute')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Flute Classes</a>
+            <a @click="handleNavigation('french')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">French Classes</a>
+            <a @click="handleNavigation('guitar')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Guitar Lessons</a>
+            <a @click="handleNavigation('hobby')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Hobby Classes</a>
+            <a @click="handleNavigation('ajmer')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Ajmer</a>
+          </div>
+          <!-- Column 3 -->
+          <div>
+            <a @click="handleNavigation('ahmedabad')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Ahmedabad</a>
+            <a @click="handleNavigation('chandigarh')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Chandigarh</a>
+            <a @click="handleNavigation('delhi')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Delhi</a>
+            <a @click="handleNavigation('jaipur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Jaipur</a>
+            <a @click="handleNavigation('kota')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Kota</a>
+            <a @click="handleNavigation('jodhpur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Jodhpur</a>
+          </div>
+          <!-- Column 4 -->
+          <div>
+            <a @click="handleNavigation('mumbai')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Mumbai</a>
+            <a @click="handleNavigation('udaipur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Udaipur</a>
+            <a @click="handleNavigation('japanese')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Japanese Classes</a>
+            <a @click="handleNavigation('martial-arts')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Martial Arts Classes</a>
+            <a @click="handleNavigation('maths')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Maths Tuition</a>
+            <a @click="handleNavigation('music')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Music Classes</a>
+          </div>
+        </div>
+
+        <!-- Additional Categories -->
+        <div class="mt-8 text-center p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+          <div class="mb-4">
+            <span class="text-blue-300 mr-3 font-semibold">Cities:</span>
+            <a @click="handleCityNavigation('jaipur')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Jaipur</a>
+            <a @click="handleCityNavigation('jodhpur')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Jodhpur</a>
+            <a @click="handleCityNavigation('udaipur')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Udaipur</a>
+            <a @click="handleCityNavigation('pali')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Pali</a>
+            <a @click="handleCityNavigation('kota')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Kota</a>
+            <a @click="handleCityNavigation('mumbai')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Mumbai</a>
+            <a @click="handleCityNavigation('ahmedabad')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Ahmedabad</a>
+          </div>
+
+          <div class="mb-4">
+            <span class="text-blue-300 mr-3 font-semibold">Categories:</span>
+            <a @click="handleCategoryNavigation('academics')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Academics</a>
+            <a @click="handleCategoryNavigation('yoga')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Yoga</a>
+            <a @click="handleCategoryNavigation('music')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Music</a>
+            <a @click="handleCategoryNavigation('hobbies')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Hobbies</a>
+            <a @click="handleCategoryNavigation('computer-it')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Computer/IT Courses</a>
+          </div>
+
+          <div class="mb-4">
+            <span class="text-blue-300 mr-3 font-semibold">Classes:</span>
+            <a @click="handleClassNavigation(1)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 1st</a>
+            <a @click="handleClassNavigation(2)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 2nd</a>
+            <a @click="handleClassNavigation(3)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 3rd</a>
+            <a @click="handleClassNavigation(4)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 4th</a>
+            <a @click="handleClassNavigation(5)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 5th</a>
+            <a @click="handleClassNavigation(10)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 10th</a>
+            <a @click="handleClassNavigation(11)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 11th</a>
+          </div>
+
+          <div class="mb-4">
+            <span class="text-blue-300 mr-3 font-semibold">Subjects:</span>
+            <a @click="handleSubjectNavigation('maths')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Maths</a>
+            <a @click="handleSubjectNavigation('english')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">English</a>
+            <a @click="handleSubjectNavigation('science')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Science</a>
+            <a @click="handleSubjectNavigation('hindi')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Hindi</a>
+            <a @click="handleSubjectNavigation('sanskrit')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Sanskrit</a>
+            <a @click="handleSubjectNavigation('physics')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Physics</a>
+          </div>
+
+          <div class="mb-4">
+            <span class="text-blue-300 mr-3 font-semibold">Other:</span>
+            <a @click="handleOtherNavigation('about')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">About Us</a>
+            <a @click="handleOtherNavigation('ambassador')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Student Ambassador Program</a>
+            <a @click="handleOtherNavigation('culture')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Culture</a>
+            <a @click="handleOtherNavigation('careers')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Careers</a>
+            <a @click="handleOtherNavigation('media')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Media</a>
+            <a @click="handleOtherNavigation('terms')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Terms & Conditions</a>
+          </div>
         </div>
       </div>
 
@@ -180,15 +277,10 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import teamData from '../data/team-members.json'
 
-defineProps({
-  msg: {
-    type: String,
-    default: 'About Us'
-  }
-})
-
+const router = useRouter()
 const categories = teamData.categories
 const members = teamData.members
 const selectedCategory = ref(categories[0])
@@ -196,4 +288,57 @@ const selectedCategory = ref(categories[0])
 const filteredMembers = computed(() => {
   return members.filter(member => member.category === selectedCategory.value)
 })
+
+// Navigation handlers
+const handleNavigation = (type) => {
+  // You can customize this to handle different types of navigation
+  // For now, we'll use a search query
+  window.open(`https://www.google.com/search?q=tutor+${type.replace('-', '+')}`, '_blank')
+}
+
+const handleCityNavigation = (city) => {
+  // For cities, we'll search for tutors in that specific city
+  window.open(`https://www.google.com/search?q=tutors+in+${city}`, '_blank')
+}
+
+const handleCategoryNavigation = (category) => {
+  // For categories, we can either route internally or search externally
+  window.open(`https://www.google.com/search?q=${category}+tutoring`, '_blank')
+}
+
+const handleClassNavigation = (classNumber) => {
+  // For class-specific searches
+  window.open(`https://www.google.com/search?q=class+${classNumber}+tutoring`, '_blank')
+}
+
+const handleSubjectNavigation = (subject) => {
+  // For subject-specific searches
+  window.open(`https://www.google.com/search?q=${subject}+tutor`, '_blank')
+}
+
+const handleOtherNavigation = (type) => {
+  // This could be handled by internal routing
+  switch(type) {
+    case 'about':
+      router.push('/about')
+      break
+    case 'ambassador':
+      router.push('/student-ambassador')
+      break
+    case 'careers':
+      router.push('/careers')
+      break
+    case 'culture':
+      router.push('/culture')
+      break
+    case 'media':
+      router.push('/media')
+      break
+    case 'terms':
+      router.push('/terms')
+      break
+    default:
+      router.push('/')
+  }
+}
 </script>
