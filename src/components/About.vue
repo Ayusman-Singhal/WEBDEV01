@@ -113,9 +113,10 @@
           </router-link>
         </div>
       </div>
-
-      <!-- Tutoring Categories Section -->
-      <div class="max-w-7xl mx-auto mb-20 p-12 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md rounded-2xl border border-white/10">
+    </div>
+  </div>
+  <!-- Tutoring Categories Section -->
+  <div class="max-w-full p-12 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/10">
         <h2 class="text-4xl font-bold text-center mb-12">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">Find </span>
           <span class="text-yellow-400">Tutors</span>
@@ -161,7 +162,7 @@
         </div>
 
         <!-- Additional Categories -->
-        <div class="mt-8 text-center p-6 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10">
+        <div class="mt-8 -mx-12 px-12 text-center bg-white/5 backdrop-blur-sm border border-white/10">
           <div class="mb-4">
             <span class="text-blue-300 mr-3 font-semibold">Cities:</span>
             <a @click="handleCityNavigation('jaipur')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Jaipur</a>
@@ -204,8 +205,19 @@
           </div>
 
           <div class="mb-4">
-            <span class="text-blue-300 mr-3 font-semibold">Other:</span>
-            <a @click="handleOtherNavigation('about')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">About Us</a>
+            <span class="text-blue-300 mr-3 font-semibold">Competitive Exams:</span>
+            <a @click="handleSubjectNavigation('maths')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">JEE</a>
+            <a @click="handleSubjectNavigation('english')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">NEET</a>
+            <a @click="handleSubjectNavigation('science')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">SSC</a>
+            <a @click="handleSubjectNavigation('hindi')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">BANK</a>
+            <a @click="handleSubjectNavigation('sanskrit')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">NDA</a>
+            <a @click="handleSubjectNavigation('physics')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">CAT</a>
+            <a @click="handleSubjectNavigation('sanskrit')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">IPMAT</a>
+            <a @click="handleSubjectNavigation('physics')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">GATE</a>
+          </div>
+
+          <div class="mb-3">
+            <span class="text-blue-300 mr-3 font-semibold">About Us</span>
             <a @click="handleOtherNavigation('ambassador')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Student Ambassador Program</a>
             <a @click="handleOtherNavigation('culture')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Culture</a>
             <a @click="handleOtherNavigation('careers')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Careers</a>
@@ -216,7 +228,7 @@
       </div>
 
       <!-- Footer -->
-      <footer class="mt-20 border-t border-white/10 pt-16 pb-8">
+      <footer class="max-w-full mt-20 border-t border-white/10 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4">
           <!-- Footer Grid -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -320,17 +332,14 @@
               </form>
             </div>
           </div>
-
-          <!-- Copyright -->
-          <div class="pt-8 border-t border-white/10 text-center">
+        </div>
+      <!-- Copyright -->
+      <div class="max-w-full pt-10 border-t border-white/10 text-center">
             <p class="text-blue-100/60 text-sm">
               © 2024 TutorVue Education Pvt. Ltd. All rights reserved.
             </p>
           </div>
-        </div>
       </footer>
-    </div>
-  </div>
 </template>
 
 <style scoped>
