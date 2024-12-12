@@ -117,245 +117,275 @@
   </div>
   <!-- Tutoring Categories Section -->
   <div class="max-w-full p-12 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/10">
-        <h2 class="text-4xl font-bold text-center mb-12">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">Find </span>
-          <span class="text-yellow-400">Tutors</span>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200"> Near You</span>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <!-- Column 1 -->
-          <div>
-            <a @click="handleNavigation('academics-home-tuition')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Academics Home Tuition</a>
-            <a @click="handleNavigation('accounts-tuition')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Accounts Tuition</a>
-            <a @click="handleNavigation('bollywood-dance')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Bollywood Dance Classes</a>
-            <a @click="handleNavigation('chemistry')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Chemistry Tuition</a>
-            <a @click="handleNavigation('dance')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Dance Classes</a>
-            <a @click="handleNavigation('economics')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Economics Coaching</a>
-          </div>
-          <!-- Column 2 -->
-          <div>
-            <a @click="handleNavigation('english')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">English Coaching</a>
-            <a @click="handleNavigation('flute')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Flute Classes</a>
-            <a @click="handleNavigation('french')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">French Classes</a>
-            <a @click="handleNavigation('guitar')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Guitar Lessons</a>
-            <a @click="handleNavigation('hobby')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Hobby Classes</a>
-            <a @click="handleNavigation('ajmer')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Ajmer</a>
-          </div>
-          <!-- Column 3 -->
-          <div>
-            <a @click="handleNavigation('ahmedabad')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Ahmedabad</a>
-            <a @click="handleNavigation('chandigarh')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Chandigarh</a>
-            <a @click="handleNavigation('delhi')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Delhi</a>
-            <a @click="handleNavigation('jaipur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Jaipur</a>
-            <a @click="handleNavigation('kota')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Kota</a>
-            <a @click="handleNavigation('jodhpur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Jodhpur</a>
-          </div>
-          <!-- Column 4 -->
-          <div>
-            <a @click="handleNavigation('mumbai')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Mumbai</a>
-            <a @click="handleNavigation('udaipur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Udaipur</a>
-            <a @click="handleNavigation('japanese')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Japanese Classes</a>
-            <a @click="handleNavigation('martial-arts')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Martial Arts Classes</a>
-            <a @click="handleNavigation('maths')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Maths Tuition</a>
-            <a @click="handleNavigation('music')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Music Classes</a>
-          </div>
-        </div>
+    <h2 class="text-4xl font-bold text-center mb-12">
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">Find </span>
+      <span class="text-yellow-400">Tutors</span>
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200"> Near You</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Column 1 -->
+      <div>
+        <a @click="handleNavigation('academics-home-tuition')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Academics Home Tuition</a>
+        <a @click="handleNavigation('accounts-tuition')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Accounts Tuition</a>
+        <a @click="handleNavigation('bollywood-dance')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Bollywood Dance Classes</a>
+        <a @click="handleNavigation('chemistry')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Chemistry Tuition</a>
+        <a @click="handleNavigation('dance')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Dance Classes</a>
+        <a @click="handleNavigation('economics')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Economics Coaching</a>
+      </div>
+      <!-- Column 2 -->
+      <div>
+        <a @click="handleNavigation('english')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">English Coaching</a>
+        <a @click="handleNavigation('flute')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Flute Classes</a>
+        <a @click="handleNavigation('french')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">French Classes</a>
+        <a @click="handleNavigation('guitar')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Guitar Lessons</a>
+        <a @click="handleNavigation('hobby')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Hobby Classes</a>
+        <a @click="handleNavigation('ajmer')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Ajmer</a>
+      </div>
+      <!-- Column 3 -->
+      <div>
+        <a @click="handleNavigation('ahmedabad')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Ahmedabad</a>
+        <a @click="handleNavigation('chandigarh')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Chandigarh</a>
+        <a @click="handleNavigation('delhi')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Delhi</a>
+        <a @click="handleNavigation('jaipur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Jaipur</a>
+        <a @click="handleNavigation('kota')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Kota</a>
+        <a @click="handleNavigation('jodhpur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Jodhpur</a>
+      </div>
+      <!-- Column 4 -->
+      <div>
+        <a @click="handleNavigation('mumbai')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Mumbai</a>
+        <a @click="handleNavigation('udaipur')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Home Tuition in Udaipur</a>
+        <a @click="handleNavigation('japanese')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Japanese Classes</a>
+        <a @click="handleNavigation('martial-arts')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Martial Arts Classes</a>
+        <a @click="handleNavigation('maths')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Maths Tuition</a>
+        <a @click="handleNavigation('music')" class="text-blue-300 hover:text-blue-200 block mb-3 cursor-pointer">Music Classes</a>
+      </div>
+    </div>
 
-        <!-- Additional Categories -->
-        <div class="mt-8 -mx-12 px-12 text-left bg-white/5 backdrop-blur-sm border border-white/10">
-          <div class="mb-4">
-            <span class="text-blue-300 mr-3 font-semibold">Cities:</span>
-            <a @click="handleCityNavigation('jaipur')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Jaipur</a>
-            <a @click="handleCityNavigation('jodhpur')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Jodhpur</a>
-            <a @click="handleCityNavigation('udaipur')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Udaipur</a>
-            <a @click="handleCityNavigation('pali')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Pali</a>
-            <a @click="handleCityNavigation('kota')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Kota</a>
-            <a @click="handleCityNavigation('mumboi')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Mumbai</a>
-            <a @click="handleCityNavigation('ahmedabad')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Ahmedabad</a>
-            <div class="text-center">
-              <a @click="handleOtherNavigation('ambassador')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Student Ambassador Program</a>
-          </div>
-            
-          </div>
+    <!-- Separator Line -->
+    <div class="relative my-12">
+      <div class="absolute inset-0 flex items-center" aria-hidden="true">
+        <div class="w-full border-t border-white/10"></div>
+      </div>
+      <div class="relative flex justify-center">
+        <span class="px-4 bg-gradient-to-b from-white/10 to-white/5 text-sm text-blue-300"></span>
+      </div>
+    </div>
 
-          <div class="mb-4">
-            <span class="text-blue-300 mr-3 font-semibold">Categories:</span>
-            <a @click="handleCategoryNavigation('academics')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Academics</a>
-            <a @click="handleCategoryNavigation('yoga')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Yoga</a>
-            <a @click="handleCategoryNavigation('music')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Music</a>
-            <a @click="handleCategoryNavigation('hobbies')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Hobbies</a>
-            <a @click="handleCategoryNavigation('computer-it')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Computer/IT Courses</a>
-            <div class="text-center">
-              <a @click="handleOtherNavigation('culture')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Culture</a>
-          </div>
-          </div>
-
-          <div class="mb-4">
-            <span class="text-blue-300 mr-3 font-semibold">Classes:</span>
-            <a @click="handleClassNavigation(1)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 1st</a>
-            <a @click="handleClassNavigation(2)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 2nd</a>
-            <a @click="handleClassNavigation(3)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 3rd</a>
-            <a @click="handleClassNavigation(4)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 4th</a>
-            <a @click="handleClassNavigation(5)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 5th</a>
-            <a @click="handleClassNavigation(10)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 10th</a>
-            <a @click="handleClassNavigation(11)" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Class 11th</a>
-            <div class="text-center">
-              <a @click="handleOtherNavigation('careers')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Careers</a>
-          </div>
-          </div>
-
-          <div class="mb-4">
-            <span class="text-blue-300 mr-3 font-semibold">Subjects:</span>
-            <a @click="handleSubjectNavigation('maths')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Maths</a>
-            <a @click="handleSubjectNavigation('english')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">English</a>
-            <a @click="handleSubjectNavigation('science')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Science</a>
-            <a @click="handleSubjectNavigation('hindi')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Hindi</a>
-            <a @click="handleSubjectNavigation('sanskrit')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Sanskrit</a>
-            <a @click="handleSubjectNavigation('physics')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Physics</a>
-            <div class="text-center">
-              <a @click="handleOtherNavigation('media')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Media</a>
-          </div>
-          <div class="text-right">
-            <a href="https://forms.gle/your-google-form-link" target="_blank" class="inline-flex items-center text-blue-300 hover:text-blue-100 transition-colors">
-              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>
-              <span class="font-semibold">Write a Review</span>
+    <!-- Additional Categories -->
+    <div class="mt-12">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+        
+        <!-- Cities Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            </svg>
+            Cities
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <a v-for="city in ['Jaipur', 'Jodhpur', 'Udaipur', 'Pali', 'Kota', 'Mumbai', 'Ahmedabad']" 
+               @click="handleCityNavigation(city.toLowerCase())"
+               class="px-3 py-1 text-sm bg-white/5 hover:bg-white/10 rounded-full text-blue-300 hover:text-blue-200 cursor-pointer transition-all">
+              {{city}}
             </a>
           </div>
-          </div>
-          
+        </div>
 
-          <div class="mb-4">
-            <span class="text-blue-300 mr-3 font-semibold">Competitive Exams:</span>
-            <a @click="handleSubjectNavigation('maths')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">JEE</a>
-            <a @click="handleSubjectNavigation('english')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">NEET</a>
-            <a @click="handleSubjectNavigation('science')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">SSC</a>
-            <a @click="handleSubjectNavigation('hindi')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">BANK</a>
-            <a @click="handleSubjectNavigation('sanskrit')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">NDA</a>
-            <a @click="handleSubjectNavigation('physics')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">CAT</a>
-            <a @click="handleSubjectNavigation('sanskrit')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">IPMAT</a>
-            <a @click="handleSubjectNavigation('physics')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">GATE</a>
-            <div class="text-center">
-            <a @click="handleOtherNavigation('terms')" class="text-blue-300 hover:text-blue-200 mx-2 cursor-pointer">Terms & Conditions</a>
-          </div>
+        <!-- Categories Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+            Categories
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <a v-for="category in ['Academics', 'Yoga', 'Music', 'Hobbies', 'Computer/IT']"
+               @click="handleCategoryNavigation(category.toLowerCase())"
+               class="px-3 py-1 text-sm bg-white/5 hover:bg-white/10 rounded-full text-blue-300 hover:text-blue-200 cursor-pointer transition-all">
+              {{category}}
+            </a>
           </div>
         </div>
+
+        <!-- Classes Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            Classes
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <a v-for="classNum in ['1st', '2nd', '3rd', '4th', '5th', '10th', '11th']"
+               @click="handleClassNavigation(classNum)"
+               class="px-3 py-1 text-sm bg-white/5 hover:bg-white/10 rounded-full text-blue-300 hover:text-blue-200 cursor-pointer transition-all">
+              Class {{classNum}}
+            </a>
+          </div>
+        </div>
+
+        <!-- Subjects Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            Subjects
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <a v-for="subject in ['Maths', 'English', 'Science', 'Hindi', 'Sanskrit', 'Physics']"
+               @click="handleSubjectNavigation(subject.toLowerCase())"
+               class="px-3 py-1 text-sm bg-white/5 hover:bg-white/10 rounded-full text-blue-300 hover:text-blue-200 cursor-pointer transition-all">
+              {{subject}}
+            </a>
+          </div>
+        </div>
+
+        <!-- Competitive Exams Section -->
+        <div class="space-y-4">
+          <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Competitive Exams
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <a v-for="exam in ['JEE', 'NEET', 'SSC', 'BANK', 'NDA', 'CAT', 'IPMAT', 'GATE']"
+               @click="handleSubjectNavigation(exam.toLowerCase())"
+               class="px-3 py-1 text-sm bg-white/5 hover:bg-white/10 rounded-full text-blue-300 hover:text-blue-200 cursor-pointer transition-all">
+              {{exam}}
+            </a>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Footer -->
-      <footer class="max-w-full mt-20 border-t border-white/10 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4">
-          <!-- Footer Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <!-- Company Info -->
-            <div>
-              <h3 class="text-white font-semibold text-lg mb-4">About Us</h3>
-              <p class="text-blue-100/80 text-sm leading-relaxed mb-4">
-                TutorVue is dedicated to connecting students with exceptional tutors, making quality education accessible to everyone.
-              </p>
-              <div class="flex space-x-4">
-                <a href="https://linkedin.com/company/tutorvue" 
-                   target="_blank"
-                   class="text-blue-300 hover:text-blue-100 transition-colors">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                </a>
-                <a href="https://instagram.com/tutorvue" 
-                   target="_blank"
-                   class="text-blue-300 hover:text-blue-100 transition-colors">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </a>
-                <a href="https://facebook.com/tutorvue" 
-                   target="_blank"
-                   class="text-blue-300 hover:text-blue-100 transition-colors">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
+      <!-- Quick Links -->
+      <div class="mt-8 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-4">
+        <a v-for="link in ['Student Ambassador Program', 'Culture', 'Careers', 'Media', 'Terms & Conditions']"
+           @click="handleOtherNavigation(link.toLowerCase())"
+           class="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-blue-300 hover:text-blue-200 cursor-pointer transition-all text-sm">
+          {{link}}
+        </a>
+      </div>
+    </div>
+  </div>
 
-            <!-- Quick Links -->
-            <div>
-              <h3 class="text-white font-semibold text-lg mb-4">Quick Links</h3>
-              <ul class="space-y-2">
-                <li><a href="/about" class="text-blue-100/80 hover:text-white transition-colors">About Us</a></li>
-                <li><a href="/careers" class="text-blue-100/80 hover:text-white transition-colors">Careers</a></li>
-                <li><a href="/blog" class="text-blue-100/80 hover:text-white transition-colors">Blog</a></li>
-                <li><a href="/privacy" class="text-blue-100/80 hover:text-white transition-colors">Privacy Policy</a></li>
-                <li><a href="/terms" class="text-blue-100/80 hover:text-white transition-colors">Terms of Service</a></li>
-              </ul>
-            </div>
-
-            <!-- Contact Info -->
-            <div>
-              <h3 class="text-white font-semibold text-lg mb-4">Contact Info</h3>
-              <ul class="space-y-3">
-                <li class="flex items-start space-x-3">
-                  <svg class="w-5 h-5 text-blue-300 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                  </svg>
-                  <span class="text-blue-100/80">
-                    TutorVue Education Pvt. Ltd.<br/>
-                    123 Learning Street, Knowledge Park<br/>
-                    Mumbai, Maharashtra - 400001
-                  </span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                  </svg>
-                  <span class="text-blue-100/80">+91 98765 43210</span>
-                </li>
-                <li class="flex items-center space-x-3">
-                  <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                  </svg>
-                  <span class="text-blue-100/80">contact@tutorvue.com</span>
-                </li>
-              </ul>
-            </div>
-
-            <!-- Contact Form -->
-            <div>
-              <h3 class="text-white font-semibold text-lg mb-4">Get in Touch</h3>
-              <form class="space-y-4">
-                <div>
-                  <input 
-                    type="email" 
-                    placeholder="Your email" 
-                    class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-blue-100/50"
-                  >
-                </div>
-                <div>
-                  <textarea 
-                    placeholder="Your message" 
-                    rows="3" 
-                    class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-blue-100/50"
-                  ></textarea>
-                </div>
-                <button 
-                  type="submit" 
-                  class="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-all duration-300"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
+  <!-- Footer -->
+  <footer class="max-w-full mt-20 border-t border-white/10 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- Footer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">About Us</h3>
+          <p class="text-blue-100/80 text-sm leading-relaxed mb-4">
+            TutorVue is dedicated to connecting students with exceptional tutors, making quality education accessible to everyone.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://linkedin.com/company/tutorvue" 
+               target="_blank"
+               class="text-blue-300 hover:text-blue-100 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/tutorvue" 
+               target="_blank"
+               class="text-blue-300 hover:text-blue-100 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="https://facebook.com/tutorvue" 
+               target="_blank"
+               class="text-blue-300 hover:text-blue-100 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+              </svg>
+            </a>
           </div>
         </div>
-      <!-- Copyright -->
-      <div class="max-w-full pt-10 border-t border-white/10 text-center">
-            <p class="text-blue-100/60 text-sm">
-              © 2024 TutorVue Education Pvt. Ltd. All rights reserved.
-            </p>
-          </div>
-      </footer>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="/about" class="text-blue-100/80 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/careers" class="text-blue-100/80 hover:text-white transition-colors">Careers</a></li>
+            <li><a href="/blog" class="text-blue-100/80 hover:text-white transition-colors">Blog</a></li>
+            <li><a href="/privacy" class="text-blue-100/80 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms" class="text-blue-100/80 hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Contact Info</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-blue-300 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span class="text-blue-100/80">
+                TutorVue Education Pvt. Ltd.<br/>
+                123 Learning Street, Knowledge Park<br/>
+                Mumbai, Maharashtra - 400001
+              </span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <span class="text-blue-100/80">+91 98765 43210</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <span class="text-blue-100/80">contact@tutorvue.com</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Form -->
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Get in Touch</h3>
+          <form class="space-y-4">
+            <div>
+              <input 
+                type="email" 
+                placeholder="Your email" 
+                class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-blue-100/50"
+              >
+            </div>
+            <div>
+              <textarea 
+                placeholder="Your message" 
+                rows="3" 
+                class="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-blue-100/50"
+              ></textarea>
+            </div>
+            <button 
+              type="submit" 
+              class="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-all duration-300"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  <!-- Copyright -->
+  <div class="max-w-full pt-10 border-t border-white/10 text-center">
+        <p class="text-blue-100/60 text-sm">
+          © 2024 TutorVue Education Pvt. Ltd. All rights reserved.
+        </p>
+      </div>
+  </footer>
 </template>
 
 <style scoped>
