@@ -1,0 +1,224 @@
+{
+    "teachers": [
+      {
+        "id": 1,
+        "name": "Dr. Sarah Johnson",
+        "subject": "Mathematics",
+        "rating": 4.9,
+        "reviews": 128,
+        "students": 450,
+        "experience": "8 years",
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "badges": ["Top Rated", "PhD", "Certified"],
+        "availability": "Available Now",
+        "hourlyRate": 45,
+        "education": "PhD in Mathematics from MIT",
+        "specializations": ["Calculus", "Linear Algebra", "Statistics"],
+        "languages": ["English", "Mandarin"],
+        "about": "Passionate mathematics educator with 8 years of experience in both university and private tutoring settings. Specialized in making complex mathematical concepts accessible to students of all levels.",
+        "achievements": [
+          "Published researcher in Mathematical Education",
+          "Winner of Excellence in Teaching Award 2022",
+          "Over 450 successful students"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Prof. Michael Chen",
+        "subject": "Physics",
+        "rating": 4.8,
+        "reviews": 96,
+        "students": 320,
+        "experience": "10 years",
+        "avatar": "https://i.pravatar.cc/150?img=2",
+        "badges": ["Expert", "PhD", "Published"],
+        "availability": "Available Today",
+        "hourlyRate": 50,
+        "education": "PhD in Physics from Stanford",
+        "specializations": ["Quantum Mechanics", "Thermodynamics", "Astrophysics"],
+        "languages": ["English", "Chinese"],
+        "about": "Research professor with a passion for teaching complex physics concepts in an engaging way. Published author in quantum physics with extensive teaching experience.",
+        "achievements": [
+          "Multiple research publications",
+          "Science Communication Award 2021",
+          "Developed innovative teaching methods"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Emma Wilson",
+        "subject": "English Literature",
+        "rating": 4.7,
+        "reviews": 156,
+        "students": 480,
+        "experience": "6 years",
+        "avatar": "https://i.pravatar.cc/150?img=3",
+        "badges": ["Creative Writing", "Published Author"],
+        "availability": "Available Now",
+        "hourlyRate": 40,
+        "education": "MA in Creative Writing from Columbia University",
+        "specializations": ["Creative Writing", "Literary Analysis", "Essay Writing"],
+        "languages": ["English", "French"],
+        "about": "Published author and experienced writing coach. Specializes in helping students develop their unique voice while mastering academic writing skills.",
+        "achievements": [
+          "Published novelist",
+          "Writing Workshop Leader",
+          "Former Editor at Literary Journal"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Dr. James Rodriguez",
+        "subject": "Chemistry",
+        "rating": 4.9,
+        "reviews": 112,
+        "students": 290,
+        "experience": "12 years",
+        "avatar": "https://i.pravatar.cc/150?img=4",
+        "badges": ["PhD", "Research Expert", "Industry Experience"],
+        "availability": "Available Today",
+        "hourlyRate": 55,
+        "education": "PhD in Chemistry from Berkeley",
+        "specializations": ["Organic Chemistry", "Biochemistry", "Lab Techniques"],
+        "languages": ["English", "Spanish"],
+        "about": "Former industry researcher turned educator. Brings real-world applications into chemistry education with hands-on learning approaches.",
+        "achievements": [
+          "Multiple patents holder",
+          "Industry-Academic Partnership Award",
+          "Innovative Teaching Methods Developer"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Dr. Aisha Patel",
+        "subject": "Biology",
+        "rating": 4.8,
+        "reviews": 143,
+        "students": 380,
+        "experience": "9 years",
+        "avatar": "https://i.pravatar.cc/150?img=5",
+        "badges": ["Medical Expert", "PhD", "Research"],
+        "availability": "Available Now",
+        "hourlyRate": 48,
+        "education": "MD-PhD from Johns Hopkins University",
+        "specializations": ["Human Anatomy", "Genetics", "Cellular Biology"],
+        "languages": ["English", "Hindi", "Gujarati"],
+        "about": "Medical doctor and researcher bringing clinical experience to biology education. Specializes in pre-med preparation and advanced biology concepts.",
+        "achievements": [
+          "Published Medical Researcher",
+          "Excellence in Medical Education Award",
+          "Developed Pre-Med Preparation Program"
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Prof. David Kim",
+        "subject": "Computer Science",
+        "rating": 4.9,
+        "reviews": 167,
+        "students": 520,
+        "experience": "15 years",
+        "avatar": "https://i.pravatar.cc/150?img=6",
+        "badges": ["Tech Expert", "Industry Leader", "Full Stack"],
+        "availability": "Available Today",
+        "hourlyRate": 60,
+        "education": "MS in Computer Science from Georgia Tech",
+        "specializations": ["Web Development", "Algorithms", "Machine Learning"],
+        "languages": ["English", "Korean"],
+        "about": "Former tech lead at major tech companies, now dedicated to nurturing the next generation of developers. Practical, project-based teaching approach.",
+        "achievements": [
+          "Multiple Tech Patents",
+          "Open Source Contributor",
+          "Tech Education Innovator Award"
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Lisa Thompson",
+        "subject": "History",
+        "rating": 4.7,
+        "reviews": 98,
+        "students": 240,
+        "experience": "7 years",
+        "avatar": "https://i.pravatar.cc/150?img=7",
+        "badges": ["Published Author", "Research Expert"],
+        "availability": "Available Now",
+        "hourlyRate": 42,
+        "education": "MA in History from Yale University",
+        "specializations": ["World History", "European History", "Historical Research"],
+        "languages": ["English", "German"],
+        "about": "Passionate about making history come alive through storytelling and connecting historical events to contemporary issues.",
+        "achievements": [
+          "Published History Author",
+          "Historical Documentary Consultant",
+          "Digital History Project Leader"
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Dr. Robert Zhang",
+        "subject": "Economics",
+        "rating": 4.8,
+        "reviews": 134,
+        "students": 310,
+        "experience": "11 years",
+        "avatar": "https://i.pravatar.cc/150?img=8",
+        "badges": ["PhD", "Financial Expert", "Research"],
+        "availability": "Available Today",
+        "hourlyRate": 52,
+        "education": "PhD in Economics from LSE",
+        "specializations": ["Microeconomics", "Econometrics", "Financial Markets"],
+        "languages": ["English", "Mandarin"],
+        "about": "Combining academic expertise with real-world financial experience to make economics accessible and practical.",
+        "achievements": [
+          "Economic Policy Advisor",
+          "Published Economics Researcher",
+          "Financial Literacy Program Developer"
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Maria Garcia",
+        "subject": "Spanish",
+        "rating": 4.9,
+        "reviews": 189,
+        "students": 430,
+        "experience": "9 years",
+        "avatar": "https://i.pravatar.cc/150?img=9",
+        "badges": ["Native Speaker", "Certified Teacher"],
+        "availability": "Available Now",
+        "hourlyRate": 38,
+        "education": "MA in Spanish Language Education from Universidad de Salamanca",
+        "specializations": ["Conversation", "Grammar", "Business Spanish"],
+        "languages": ["Spanish", "English", "Portuguese"],
+        "about": "Native Spanish speaker with a passion for teaching through immersion and cultural connection.",
+        "achievements": [
+          "Language Teaching Excellence Award",
+          "Cultural Exchange Program Leader",
+          "Spanish Curriculum Developer"
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Dr. Anna Kowalski",
+        "subject": "Psychology",
+        "rating": 4.8,
+        "reviews": 145,
+        "students": 280,
+        "experience": "10 years",
+        "avatar": "https://i.pravatar.cc/150?img=10",
+        "badges": ["PhD", "Clinical Experience", "Research"],
+        "availability": "Available Today",
+        "hourlyRate": 47,
+        "education": "PhD in Psychology from University of Toronto",
+        "specializations": ["Clinical Psychology", "Research Methods", "Cognitive Psychology"],
+        "languages": ["English", "Polish"],
+        "about": "Clinical psychologist bringing real-world experience to academic psychology education.",
+        "achievements": [
+          "Published Mental Health Researcher",
+          "Psychology Education Innovation Award",
+          "Mental Health Awareness Program Developer"
+        ]
+      }
+    ]
+  }
