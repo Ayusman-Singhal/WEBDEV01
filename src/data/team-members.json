@@ -2,27 +2,36 @@
   "categories": [
     "Founders",
     "Product & Tech",
+    "Human Resources",
     "Marketing & Design",
     "Customer Success",
     "Operations"
   ],
   "members": [
     {
-      "name": "John Smith",
+      "name": "Aditya Ranjan",
       "role": "Co-Founder & CEO",
       "category": "Founders",
-      "image": "https://i.pravatar.cc",
+      "image": "src/assets/team_members/ceo.png",
       "quote": "Building the future of education",
       "linkedin": "https://linkedin.com/in/johnsmith"
     },
     {
-      "name": "Sarah Johnson",
+      "name": "Ayusman Singhal",
       "role": "CTO",
       "category": "Product & Tech",
-      "image": "https://i.pravatar.cc",
+      "image": "src/assets/team_members/cto.png",
       "quote": "Innovation through technology",
       "linkedin": "https://linkedin.com/in/sarahjohnson"
     },
+    {
+      "name": "Random Name",
+      "role": "HR",
+      "category": "Human Resources",
+      "image": "src/assets/team_members/HR.png",
+      "quote": "Empowering the People.",
+      "linkedin": "https://linkedin.com/in/sarahjohnson"
+    },    
     {
       "name": "Mike Chen",
       "role": "Head of Design",
