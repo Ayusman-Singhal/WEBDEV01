@@ -306,7 +306,7 @@
     </section>
   </div>
     <!-- Footer -->
-    <footer class="py-16 bg-gray-900 text-white max-w-full border-t border-white/10 pt-16 pb-8">
+    <footer class="bg-gray-900 text-white max-w-full border-t border-white/10">
     <!-- Tutoring Categories Section -->
   <div class="max-w-full p-12 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/10">
     <h2 class="text-4xl font-bold text-center mb-12">
