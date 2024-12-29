@@ -758,6 +758,162 @@
             </div>
           </div>
 
+          <!-- Step 5: Final Review & Submit -->
+          <div v-show="currentStep === 5" class="space-y-6">
+            <div class="flex items-center space-x-2 mb-6">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h3 class="text-2xl font-semibold text-gray-900">Review & Submit</h3>
+            </div>
+
+            <!-- Review Sections -->
+            <div class="space-y-8">
+              <!-- Personal Information -->
+              <div class="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 class="text-lg font-medium text-gray-900 mb-4">Personal Information</h4>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-sm text-gray-500">Name</p>
+                    <p class="text-sm font-medium">{{ form.name }}</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Email</p>
+                    <p class="text-sm font-medium">{{ form.email }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ID Verification -->
+              <div class="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 class="text-lg font-medium text-gray-900 mb-4">ID Verification</h4>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-sm text-gray-500">ID Type</p>
+                    <p class="text-sm font-medium">{{ form.govtIdType }}</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">ID Number</p>
+                    <p class="text-sm font-medium">{{ form.govtIdNumber }}</p>
+                  </div>
+                </div>
+                <div class="mt-4 flex space-x-4">
+                  <div v-if="form.idPhotoUrl" class="w-32">
+                    <p class="text-sm text-gray-500 mb-2">ID Photo</p>
+                    <div class="relative h-20 bg-gray-100 rounded-lg overflow-hidden">
+                      <img 
+                        v-if="!isUploadedFilePDF" 
+                        :src="form.idPhotoUrl" 
+                        class="h-full w-full object-cover"
+                        alt="ID Photo"
+                      >
+                      <div v-else class="flex items-center justify-center h-full">
+                        <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div v-if="form.selfieUrl" class="w-32">
+                    <p class="text-sm text-gray-500 mb-2">Selfie Photo</p>
+                    <div class="relative h-20 bg-gray-100 rounded-lg overflow-hidden">
+                      <img 
+                        :src="form.selfieUrl" 
+                        class="h-full w-full object-cover"
+                        alt="Selfie Photo"
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Teaching Profile -->
+              <div class="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 class="text-lg font-medium text-gray-900 mb-4">Teaching Profile</h4>
+                <div class="space-y-4">
+                  <div>
+                    <p class="text-sm text-gray-500">Subjects</p>
+                    <div class="flex flex-wrap gap-2 mt-1">
+                      <span 
+                        v-for="subject in selectedSubjects" 
+                        :key="subject.id"
+                        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                      >
+                        {{ subject.name }}
+                      </span>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Education Level</p>
+                    <p class="text-sm font-medium">{{ form.educationLevel }}</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Teaching Experience</p>
+                    <p class="text-sm font-medium">{{ form.teachingExperience }}</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Hourly Rate</p>
+                    <p class="text-sm font-medium">${{ form.hourlyRate }}/hour</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Introduction</p>
+                    <p class="text-sm">{{ form.introduction }}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Availability -->
+              <div class="bg-white p-6 rounded-lg border border-gray-200">
+                <h4 class="text-lg font-medium text-gray-900 mb-4">Availability</h4>
+                <div class="space-y-4">
+                  <div>
+                    <p class="text-sm text-gray-500">Time Zone</p>
+                    <p class="text-sm font-medium">{{ form.timeZone }}</p>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500 mb-2">Weekly Schedule</p>
+                    <div class="space-y-2">
+                      <div 
+                        v-for="day in weekDays" 
+                        :key="day.value"
+                        v-show="form.availability[day.value].enabled"
+                        class="flex items-center space-x-2"
+                      >
+                        <span class="text-sm font-medium w-24">{{ day.label }}:</span>
+                        <span class="text-sm">
+                          {{ formatTime(form.availability[day.value].start) }} - 
+                          {{ formatTime(form.availability[day.value].end) }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-sm text-gray-500">Notice Period</p>
+                    <p class="text-sm font-medium">
+                      {{ form.noticePeriod === '0' ? 'No notice needed' : `${form.noticePeriod} hours` }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terms and Conditions -->
+              <div class="space-y-4">
+                <label class="flex items-start space-x-3">
+                  <input
+                    type="checkbox"
+                    v-model="form.termsAccepted"
+                    class="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  >
+                  <span class="text-sm text-gray-600">
+                    I agree to the <a href="#" class="text-blue-600 hover:text-blue-500">Terms and Conditions</a> and 
+                    <a href="#" class="text-blue-600 hover:text-blue-500">Privacy Policy</a>
+                  </span>
+                </label>
+                <p v-if="termsError" class="text-sm text-red-500">{{ termsError }}</p>
+              </div>
+            </div>
+          </div>
+
           <!-- Navigation Buttons -->
           <div class="flex justify-between mt-8">
             <button
@@ -768,21 +924,80 @@
               Back
             </button>
             
-            <button
-              @click="nextStep"
-              type="button"
-              :disabled="!isStep4Valid"
-              class="px-6 py-3 rounded-lg text-sm font-medium transition-colors"
-              :class="[
-                isStep4Valid 
-                  ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              ]"
-            >
-              Next
-            </button>
+            <template v-if="currentStep === totalSteps">
+              <!-- Submit Button for Final Step -->
+              <button
+                @click="handleSubmit"
+                type="button"
+                :disabled="!isStep5Valid || isSubmitting"
+                class="px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+                :class="[
+                  isStep5Valid && !isSubmitting
+                    ? 'bg-green-600 text-white hover:bg-green-700' 
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                ]"
+              >
+                <span v-if="isSubmitting">
+                  Submitting...
+                </span>
+                <span v-else>
+                  Submit Application
+                </span>
+              </button>
+            </template>
+            
+            <template v-else>
+              <!-- Next Button for Other Steps -->
+              <button
+                @click="nextStep"
+                type="button"
+                :disabled="!isFormValid"
+                class="px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+                :class="[
+                  isFormValid 
+                    ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                ]"
+              >
+                Next
+              </button>
+            </template>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div v-if="showSuccessModal" class="fixed inset-0 flex items-center justify-center z-50">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    
+    <!-- Modal Content -->
+    <div class="relative bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-xl">
+      <div class="text-center">
+        <!-- Success Icon -->
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
+          <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        
+        <!-- Success Message -->
+        <h3 class="text-lg font-medium text-gray-900 mb-2">
+          Application Submitted Successfully!
+        </h3>
+        <p class="text-sm text-gray-500 mb-6">
+          Thank you for applying to become a tutor. We will review your application and send you further details within 3-5 business days.
+        </p>
+        
+        <!-- Return to Home Button -->
+        <button
+          @click="returnToHome"
+          class="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+          Return to Home
+        </button>
       </div>
     </div>
   </div>
@@ -790,11 +1005,12 @@
 
 <script setup>
 import { ref, computed, watch, onUnmounted, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
 // Form visibility state
 const showApplicationForm = ref(false)
 const currentStep = ref(1)
-const totalSteps = 4 // Adjust based on your needs
+const totalSteps = 5 // Adjust based on your needs
 
 // Benefits data
 const benefits = [
@@ -866,6 +1082,11 @@ const nextStep = () => {
       }
       return
     }
+  } else if (currentStep.value === 5) {
+    if (!isStep5Valid.value) {
+      termsError.value = 'Please accept the terms and conditions'
+      return
+    }
   }
   
   if (currentStep.value < totalSteps) {
@@ -886,12 +1107,6 @@ const cancelApplication = () => {
     // Reset form data here
   }
 }
-
-const handleSubmit = () => {
-  // Handle form submission
-  console.log('Form submitted')
-}
-
 // Add form state
 const form = ref({
   name: '',
@@ -924,7 +1139,8 @@ const form = ref({
     instantBooking: false,
     longTermStudents: false
   },
-  noticePeriod: ''
+  noticePeriod: '',
+  termsAccepted: false
 })
 
 // Add password visibility toggles
@@ -1442,6 +1658,56 @@ const isStep4Valid = computed(() => {
 watch(() => form.value.timeZone, () => timeZoneError.value = '')
 watch(() => form.value.availability, () => availabilityError.value = '', { deep: true })
 watch(() => form.value.noticePeriod, () => noticePeriodError.value = '')
+
+// Add new refs for Step 5
+const termsError = ref('')
+const isSubmitting = ref(false)
+
+// Add validation for Step 5
+const isStep5Valid = computed(() => {
+  if (currentStep.value !== 5) return true
+  return form.value.termsAccepted
+})
+
+// Add form submission handler
+const handleSubmit = async () => {
+  if (!isStep5Valid.value) {
+    termsError.value = 'Please accept the terms and conditions'
+    return
+  }
+
+  try {
+    isSubmitting.value = true
+    // Add your API call here
+    // await submitTutorApplication(form.value)
+    
+    // Simulate API call with timeout
+    await new Promise(resolve => setTimeout(resolve, 1500))
+    
+    // Show success modal
+    showSuccessModal.value = true
+    
+  } catch (error) {
+    console.error('Error submitting application:', error)
+    // Handle error
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+// Clear terms error when checkbox is changed
+watch(() => form.value.termsAccepted, () => {
+  termsError.value = ''
+})
+
+// Add new refs
+const showSuccessModal = ref(false)
+const router = useRouter() // Make sure to import useRouter from vue-router
+
+// Add return to home function
+const returnToHome = () => {
+  router.push('/') // Navigate to home page
+}
 </script>
 
 <style scoped>
@@ -1481,6 +1747,17 @@ watch(() => form.value.noticePeriod, () => noticePeriodError.value = '')
 
 .day-row-enabled {
   @apply bg-blue-50;
+}
+
+/* Add fade transition for modal */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
 }
 </style>
 
