@@ -308,13 +308,16 @@
               <p v-if="idNumberError" class="mt-1 text-sm text-red-500">{{ idNumberError }}</p>
             </div>
 
-            <!-- ID Photo Upload -->
+            <!-- ID Photo/Document Upload -->
             <div class="relative">
               <label class="block text-sm font-medium text-gray-700 mb-2">
-                ID Photo <span class="text-red-500">*</span>
+                ID Document <span class="text-red-500">*</span>
+                <span class="text-sm text-gray-500 ml-1">(PDF, PNG, JPG, JPEG up to 10MB)</span>
               </label>
-              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-blue-500 transition-colors">
+              
+              <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg">
                 <div class="space-y-1 text-center">
+                  <!-- Upload Area -->
                   <div v-if="!form.idPhotoUrl" class="flex flex-col items-center">
                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
                       <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -325,19 +328,38 @@
                         <input 
                           type="file" 
                           class="sr-only" 
-                          accept="image/*"
-                          @change="handleIdPhotoUpload"
+                          @change="handleIdPhotoUpload" 
+                          accept=".pdf,.png,.jpg,.jpeg"
                         >
                       </label>
                       <p class="pl-1">or drag and drop</p>
                     </div>
-                    <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                    <p class="text-xs text-gray-500">PDF, PNG, JPG up to 10MB</p>
                   </div>
+
+                  <!-- Preview Area -->
                   <div v-else class="relative">
-                    <img :src="form.idPhotoUrl" class="max-h-48 rounded-lg" alt="ID Preview">
-                    <button 
-                      @click="removeIdPhoto" 
-                      class="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600"
+                    <!-- PDF Preview -->
+                    <div v-if="isUploadedFilePDF" class="flex items-center justify-center p-4 bg-gray-100 rounded-lg">
+                      <svg class="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z" />
+                        <path d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+                      </svg>
+                      <span class="ml-2 text-sm text-gray-600">{{ uploadedFileName }}</span>
+                    </div>
+                    
+                    <!-- Image Preview -->
+                    <img 
+                      v-else 
+                      :src="form.idPhotoUrl" 
+                      class="max-h-48 rounded-lg mx-auto"
+                      alt="ID Preview"
+                    >
+                    
+                    <!-- Remove Button -->
+                    <button
+                      @click="removeIdPhoto"
+                      class="absolute top-0 right-0 -mt-2 -mr-2 p-1 rounded-full bg-red-500 text-white hover:bg-red-600"
                     >
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -432,24 +454,327 @@
             </div>
           </div>
 
+          <!-- Step 3: Teaching Preferences -->
+          <div v-show="currentStep === 3" class="space-y-6">
+            <div class="flex items-center space-x-2 mb-6">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <h3 class="text-2xl font-semibold text-gray-900">Teaching Information</h3>
+            </div>
+
+            <!-- Subject Selection with Autocomplete -->
+            <div class="space-y-4">
+              <label class="block text-sm font-medium text-gray-700">
+                Subjects You Can Teach <span class="text-red-500">*</span>
+              </label>
+              
+              <!-- Search Input and Dropdown -->
+              <div class="relative">
+                <input
+                  type="text"
+                  v-model="subjectSearch"
+                  @input="filterSubjects"
+                  @focus="showSubjectDropdown = true"
+                  placeholder="Type to search subjects..."
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                />
+                
+                <!-- Dropdown List -->
+                <div 
+                  v-if="showSubjectDropdown && filteredSubjects.length > 0"
+                  class="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto"
+                >
+                  <div
+                    v-for="subject in filteredSubjects"
+                    :key="subject.id"
+                    @click="addSubject(subject)"
+                    class="px-4 py-2 hover:bg-blue-50 cursor-pointer flex items-center justify-between"
+                  >
+                    <span>{{ subject.name }}</span>
+                    <span v-if="isSubjectSelected(subject)" class="text-blue-500">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Selected Subjects Display -->
+              <div class="flex flex-wrap gap-2">
+                <div
+                  v-for="subject in selectedSubjects"
+                  :key="subject.id"
+                  class="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-3 py-1"
+                >
+                  <span class="text-sm">{{ subject.name }}</span>
+                  <button
+                    @click="removeSubject(subject)"
+                    class="ml-2 focus:outline-none"
+                  >
+                    <svg class="w-4 h-4 text-blue-600 hover:text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <p v-if="subjectsError" class="mt-1 text-sm text-red-500">{{ subjectsError }}</p>
+            </div>
+
+            <!-- Education Level -->
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700">
+                Education Level <span class="text-red-500">*</span>
+              </label>
+              <select
+                v-model="form.educationLevel"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+              >
+                <option value="">Select Education Level</option>
+                <option value="bachelor">Bachelor's Degree</option>
+                <option value="master">Master's Degree</option>
+                <option value="phd">PhD</option>
+                <option value="other">Other</option>
+              </select>
+              <p v-if="educationError" class="mt-1 text-sm text-red-500">{{ educationError }}</p>
+            </div>
+
+            <!-- Teaching Experience -->
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700">
+                Teaching Experience <span class="text-red-500">*</span>
+              </label>
+              <select
+                v-model="form.teachingExperience"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+              >
+                <option value="">Select Experience Level</option>
+                <option value="0-1">Less than 1 year</option>
+                <option value="1-3">1-3 years</option>
+                <option value="3-5">3-5 years</option>
+                <option value="5+">More than 5 years</option>
+              </select>
+              <p v-if="experienceError" class="mt-1 text-sm text-red-500">{{ experienceError }}</p>
+            </div>
+
+            <!-- Introduction -->
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700">
+                Brief Introduction <span class="text-red-500">*</span>
+                <span class="text-sm text-gray-500">(This will be shown to students)</span>
+              </label>
+              <textarea
+                v-model="form.introduction"
+                rows="4"
+                class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                placeholder="Tell students about yourself and your teaching style..."
+              ></textarea>
+              <p class="text-sm text-gray-500">{{ form.introduction.length }}/500 characters</p>
+              <p v-if="introductionError" class="mt-1 text-sm text-red-500">{{ introductionError }}</p>
+            </div>
+
+            <!-- Hourly Rate -->
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700">
+                Hourly Rate (USD) <span class="text-red-500">*</span>
+              </label>
+              <div class="mt-1 relative rounded-md shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 sm:text-sm">$</span>
+                </div>
+                <input
+                  type="number"
+                  v-model="form.hourlyRate"
+                  min="5"
+                  max="200"
+                  class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+                  placeholder="0.00"
+                >
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 sm:text-sm">/hour</span>
+                </div>
+              </div>
+              <p v-if="rateError" class="mt-1 text-sm text-red-500">{{ rateError }}</p>
+            </div>
+          </div>
+
+          <!-- Step 4: Availability & Schedule -->
+          <div v-show="currentStep === 4" class="space-y-6">
+            <div class="flex items-center space-x-2 mb-6">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <h3 class="text-2xl font-semibold text-gray-900">Availability & Schedule</h3>
+            </div>
+
+            <!-- Time Zone Selection -->
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700">
+                Your Time Zone <span class="text-red-500">*</span>
+              </label>
+              <select
+                v-model="form.timeZone"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+              >
+                <option value="">Select Time Zone</option>
+                <option v-for="tz in timeZones" :key="tz.value" :value="tz.value">
+                  {{ tz.label }}
+                </option>
+              </select>
+              <p v-if="timeZoneError" class="mt-1 text-sm text-red-500">{{ timeZoneError }}</p>
+            </div>
+
+            <!-- Enhanced Weekly Schedule -->
+            <div class="space-y-4">
+              <label class="block text-sm font-medium text-gray-700">
+                Weekly Availability <span class="text-red-500">*</span>
+              </label>
+              
+              <!-- Quick Selection Buttons -->
+              <div class="flex space-x-4 mb-4">
+                <button
+                  @click="setWeekdayAvailability"
+                  type="button"
+                  class="px-4 py-2 text-sm bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200"
+                >
+                  Set Weekdays
+                </button>
+                <button
+                  @click="setWeekendAvailability"
+                  type="button"
+                  class="px-4 py-2 text-sm bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200"
+                >
+                  Set Weekends
+                </button>
+                <button
+                  @click="clearAvailability"
+                  type="button"
+                  class="px-4 py-2 text-sm bg-red-100 text-red-700 rounded-md hover:bg-red-200"
+                >
+                  Clear All
+                </button>
+              </div>
+
+              <!-- Schedule Grid -->
+              <div class="grid gap-4 bg-white rounded-lg p-4 border border-gray-200">
+                <div v-for="day in weekDays" :key="day.value" 
+                  class="flex items-center space-x-4 p-3 rounded-lg"
+                  :class="form.availability[day.value].enabled ? 'bg-blue-50' : ''"
+                >
+                  <div class="w-32">
+                    <label class="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        v-model="form.availability[day.value].enabled"
+                        class="form-checkbox h-5 w-5 text-blue-600 rounded"
+                      >
+                      <span class="ml-2 text-sm font-medium text-gray-700">{{ day.label }}</span>
+                    </label>
+                  </div>
+                  
+                  <div v-if="form.availability[day.value].enabled" 
+                    class="flex items-center space-x-2 transition-all duration-200"
+                  >
+                    <select
+                      v-model="form.availability[day.value].start"
+                      class="block w-28 pl-3 pr-10 py-2 text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-md"
+                    >
+                      <option v-for="time in timeSlots" :key="time" :value="time">
+                        {{ formatTime(time) }}
+                      </option>
+                    </select>
+                    <span class="text-gray-500">to</span>
+                    <select
+                      v-model="form.availability[day.value].end"
+                      class="block w-28 pl-3 pr-10 py-2 text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-md"
+                    >
+                      <option v-for="time in getEndTimeSlots(form.availability[day.value].start)" 
+                        :key="time" 
+                        :value="time"
+                      >
+                        {{ formatTime(time) }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <p v-if="availabilityError" class="mt-1 text-sm text-red-500">{{ availabilityError }}</p>
+            </div>
+
+            <!-- Teaching Preferences -->
+            <div class="space-y-4">
+              <label class="block text-sm font-medium text-gray-700">
+                Teaching Preferences
+              </label>
+              <div class="space-y-2">
+                <label class="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    v-model="form.preferences.groupClasses"
+                    class="form-checkbox h-4 w-4 text-blue-600"
+                  >
+                  <span class="ml-2 text-sm text-gray-700">Available for group classes</span>
+                </label>
+                
+                <label class="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    v-model="form.preferences.instantBooking"
+                    class="form-checkbox h-4 w-4 text-blue-600"
+                  >
+                  <span class="ml-2 text-sm text-gray-700">Allow instant booking</span>
+                </label>
+                
+                <label class="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    v-model="form.preferences.longTermStudents"
+                    class="form-checkbox h-4 w-4 text-blue-600"
+                  >
+                  <span class="ml-2 text-sm text-gray-700">Prefer long-term students</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Notice Period -->
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-gray-700">
+                Booking Notice Period <span class="text-red-500">*</span>
+              </label>
+              <select
+                v-model="form.noticePeriod"
+                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+              >
+                <option value="">Select Notice Period</option>
+                <option value="0">No notice needed</option>
+                <option value="1">1 hour</option>
+                <option value="3">3 hours</option>
+                <option value="6">6 hours</option>
+                <option value="12">12 hours</option>
+                <option value="24">24 hours</option>
+              </select>
+              <p v-if="noticePeriodError" class="mt-1 text-sm text-red-500">{{ noticePeriodError }}</p>
+            </div>
+          </div>
+
           <!-- Navigation Buttons -->
-          <div class="flex justify-between mt-6">
+          <div class="flex justify-between mt-8">
             <button
-              type="button"
               @click="previousStep"
-              class="px-6 py-3 text-gray-600 hover:text-gray-800 transition-colors"
+              type="button"
+              class="px-6 py-3 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
             >
-              Previous
+              Back
             </button>
             
             <button
-              v-if="currentStep < totalSteps"
               @click="nextStep"
               type="button"
-              :disabled="!isStep2Valid"
+              :disabled="!isStep4Valid"
+              class="px-6 py-3 rounded-lg text-sm font-medium transition-colors"
               :class="[
-                'px-6 py-3 rounded-lg transition-colors',
-                isStep2Valid 
+                isStep4Valid 
                   ? 'bg-blue-600 text-white hover:bg-blue-700' 
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               ]"
@@ -469,7 +794,7 @@ import { ref, computed, watch, onUnmounted, onMounted } from 'vue'
 // Form visibility state
 const showApplicationForm = ref(false)
 const currentStep = ref(1)
-const totalSteps = 3 // Adjust based on your needs
+const totalSteps = 4 // Adjust based on your needs
 
 // Benefits data
 const benefits = [
@@ -512,6 +837,35 @@ const nextStep = () => {
       if (!form.value.selfieUrl) selfieError.value = 'Please take a selfie photo'
       return
     }
+  } else if (currentStep.value === 3) {
+    if (!isStep3Valid.value) {
+      if (form.value.subjects.length === 0) subjectsError.value = 'Please select at least one subject'
+      if (!form.value.educationLevel) educationError.value = 'Please select your education level'
+      if (!form.value.teachingExperience) experienceError.value = 'Please select your teaching experience'
+      if (!form.value.introduction) introductionError.value = 'Please provide an introduction'
+      if (form.value.introduction.length > 500) introductionError.value = 'Introduction must be 500 characters or less'
+      if (!form.value.hourlyRate) rateError.value = 'Please set your hourly rate'
+      if (form.value.hourlyRate < 5 || form.value.hourlyRate > 200) {
+        rateError.value = 'Hourly rate must be between $5 and $200'
+      }
+      return
+    }
+  } else if (currentStep.value === 4) {
+    if (!isStep4Valid.value) {
+      if (!form.value.timeZone) {
+        timeZoneError.value = 'Please select your time zone'
+      }
+      if (!Object.values(form.value.availability).some(day => day.enabled)) {
+        availabilityError.value = 'Please select at least one day of availability'
+      }
+      if (!Object.values(form.value.availability).every(day => !day.enabled || (day.end > day.start))) {
+        availabilityError.value = 'End time must be after start time'
+      }
+      if (!form.value.noticePeriod) {
+        noticePeriodError.value = 'Please select a notice period'
+      }
+      return
+    }
   }
   
   if (currentStep.value < totalSteps) {
@@ -549,7 +903,28 @@ const form = ref({
   idPhotoUrl: '',
   idPhoto: null,
   selfieUrl: '',
-  selfie: null
+  selfie: null,
+  subjects: [],
+  educationLevel: '',
+  teachingExperience: '',
+  introduction: '',
+  hourlyRate: null,
+  timeZone: '',
+  availability: {
+    monday: { enabled: false, start: '09:00', end: '17:00' },
+    tuesday: { enabled: false, start: '09:00', end: '17:00' },
+    wednesday: { enabled: false, start: '09:00', end: '17:00' },
+    thursday: { enabled: false, start: '09:00', end: '17:00' },
+    friday: { enabled: false, start: '09:00', end: '17:00' },
+    saturday: { enabled: false, start: '09:00', end: '17:00' },
+    sunday: { enabled: false, start: '09:00', end: '17:00' }
+  },
+  preferences: {
+    groupClasses: false,
+    instantBooking: false,
+    longTermStudents: false
+  },
+  noticePeriod: ''
 })
 
 // Add password visibility toggles
@@ -680,23 +1055,84 @@ const isFormValid = computed(() => {
   return true
 })
 
-// Handle ID photo upload
+// Add new refs
+const uploadedFileName = ref('')
+const isUploadedFilePDF = ref(false)
+
+// Updated file upload handler
 const handleIdPhotoUpload = (event) => {
   const file = event.target.files[0]
-  if (file) {
-    if (file.size > 10 * 1024 * 1024) {
-      idPhotoError.value = 'File size must be less than 10MB'
-      return
-    }
-    form.value.idPhoto = file
-    form.value.idPhotoUrl = URL.createObjectURL(file)
-    idPhotoError.value = ''
+  if (!file) return
+
+  // Validate file type
+  const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf']
+  if (!allowedTypes.includes(file.type)) {
+    idPhotoError.value = 'Please upload a PDF, PNG, or JPG file'
+    return
   }
+
+  // Validate file size (10MB)
+  if (file.size > 10 * 1024 * 1024) {
+    idPhotoError.value = 'File size must be less than 10MB'
+    return
+  }
+
+  // Store file name and type
+  uploadedFileName.value = file.name
+  isUploadedFilePDF.value = file.type === 'application/pdf'
+
+  // Handle PDF files
+  if (file.type === 'application/pdf') {
+    // Store the file object directly
+    form.value.idPhoto = file
+    form.value.idPhotoUrl = 'pdf' // Use this to indicate a PDF is uploaded
+  } else {
+    // Handle images as before
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      form.value.idPhotoUrl = e.target.result
+      form.value.idPhoto = file
+    }
+    reader.readAsDataURL(file)
+  }
+
+  idPhotoError.value = ''
 }
 
+// Updated remove function
 const removeIdPhoto = () => {
   form.value.idPhoto = null
   form.value.idPhotoUrl = ''
+  uploadedFileName.value = ''
+  isUploadedFilePDF.value = false
+}
+
+// Add drag and drop handlers
+const handleDragOver = (event) => {
+  event.preventDefault()
+  event.currentTarget.classList.add('border-blue-500')
+}
+
+const handleDragLeave = (event) => {
+  event.currentTarget.classList.remove('border-blue-500')
+}
+
+const handleDrop = (event) => {
+  event.preventDefault()
+  event.currentTarget.classList.remove('border-blue-500')
+  
+  const file = event.dataTransfer.files[0]
+  if (file) {
+    // Create a new file input event
+    const dataTransfer = new DataTransfer()
+    dataTransfer.items.add(file)
+    const event = {
+      target: {
+        files: dataTransfer.files
+      }
+    }
+    handleIdPhotoUpload(event)
+  }
 }
 
 // Start camera function
@@ -789,9 +1225,262 @@ const isStep2Valid = computed(() => {
     form.value.selfieUrl
   )
 })
+
+// Add new refs for Step 3
+const subjectsError = ref('')
+const educationError = ref('')
+const experienceError = ref('')
+const introductionError = ref('')
+const rateError = ref('')
+
+// Enhanced subjects data
+const allSubjects = [
+  { id: 'math', name: 'Mathematics' },
+  { id: 'physics', name: 'Physics' },
+  { id: 'chemistry', name: 'Chemistry' },
+  { id: 'biology', name: 'Biology' },
+  { id: 'english', name: 'English' },
+  { id: 'history', name: 'History' },
+  { id: 'programming', name: 'Programming' },
+  { id: 'music', name: 'Music' },
+  { id: 'art', name: 'Art' },
+  { id: 'phys-ed', name: 'Physical Education' },
+  { id: 'psychology', name: 'Psychology' },
+  { id: 'philosophy', name: 'Philosophy' },
+  // Add more subjects as needed
+]
+
+// New refs for subject selection
+const subjectSearch = ref('')
+const showSubjectDropdown = ref(false)
+const filteredSubjects = ref([])
+const selectedSubjects = ref([])
+
+// Filter subjects based on search input
+const filterSubjects = () => {
+  const search = subjectSearch.value.toLowerCase()
+  filteredSubjects.value = allSubjects.filter(subject => 
+    subject.name.toLowerCase().includes(search) &&
+    !isSubjectSelected(subject)
+  )
+}
+
+// Check if subject is already selected
+const isSubjectSelected = (subject) => {
+  return form.value.subjects.includes(subject.id)
+}
+
+// Add subject to selection
+const addSubject = (subject) => {
+  if (!isSubjectSelected(subject)) {
+    form.value.subjects.push(subject.id)
+    selectedSubjects.value.push(subject)
+    subjectSearch.value = ''
+    filteredSubjects.value = []
+    subjectsError.value = ''
+  }
+}
+
+// Remove subject from selection
+const removeSubject = (subject) => {
+  const index = form.value.subjects.indexOf(subject.id)
+  if (index > -1) {
+    form.value.subjects.splice(index, 1)
+    selectedSubjects.value = selectedSubjects.value.filter(s => s.id !== subject.id)
+  }
+}
+
+// Initialize selected subjects from form data
+onMounted(() => {
+  if (form.value.subjects.length > 0) {
+    selectedSubjects.value = allSubjects.filter(subject => 
+      form.value.subjects.includes(subject.id)
+    )
+  }
+})
+
+// Close dropdown when clicking outside
+onMounted(() => {
+  document.addEventListener('click', (e) => {
+    const target = e.target
+    if (!target.closest('.subject-search')) {
+      showSubjectDropdown.value = false
+    }
+  })
+})
+
+// Watch for subject search changes
+watch(subjectSearch, (newValue) => {
+  if (newValue) {
+    filterSubjects()
+    showSubjectDropdown.value = true
+  } else {
+    filteredSubjects.value = []
+  }
+})
+
+// Update form validation to use selectedSubjects
+const isStep3Valid = computed(() => {
+  if (currentStep.value !== 3) return true
+  
+  return (
+    selectedSubjects.value.length > 0 &&
+    form.value.educationLevel &&
+    form.value.teachingExperience &&
+    form.value.introduction &&
+    form.value.introduction.length <= 500 &&
+    form.value.hourlyRate &&
+    form.value.hourlyRate >= 5 &&
+    form.value.hourlyRate <= 200
+  )
+})
+
+// Clear errors when fields are updated
+watch(() => form.value.subjects, () => subjectsError.value = '')
+watch(() => form.value.educationLevel, () => educationError.value = '')
+watch(() => form.value.teachingExperience, () => experienceError.value = '')
+watch(() => form.value.introduction, () => introductionError.value = '')
+watch(() => form.value.hourlyRate, () => rateError.value = '')
+
+// Add new refs for Step 4
+const timeZoneError = ref('')
+const availabilityError = ref('')
+const noticePeriodError = ref('')
+
+// Time zones data (simplified list - you might want to use a complete timezone library)
+const timeZones = [
+  { value: 'UTC-12:00', label: '(GMT-12:00) International Date Line West' },
+  { value: 'UTC-11:00', label: '(GMT-11:00) Midway Island, Samoa' },
+  // Add more time zones...
+  { value: 'UTC+00:00', label: '(GMT+00:00) London, Dublin, Edinburgh' },
+  { value: 'UTC+01:00', label: '(GMT+01:00) Paris, Berlin, Rome' },
+  // Add more time zones...
+]
+
+// Week days
+const weekDays = [
+  { value: 'monday', label: 'Monday' },
+  { value: 'tuesday', label: 'Tuesday' },
+  { value: 'wednesday', label: 'Wednesday' },
+  { value: 'thursday', label: 'Thursday' },
+  { value: 'friday', label: 'Friday' },
+  { value: 'saturday', label: 'Saturday' },
+  { value: 'sunday', label: 'Sunday' }
+]
+
+// Time slots (24-hour format)
+const timeSlots = Array.from({ length: 48 }, (_, i) => {
+  const hour = Math.floor(i / 2)
+  const minute = i % 2 === 0 ? '00' : '30'
+  return `${hour.toString().padStart(2, '0')}:${minute}`
+})
+
+// Helper function to format time
+const formatTime = (time) => {
+  const [hours, minutes] = time.split(':')
+  const period = hours >= 12 ? 'PM' : 'AM'
+  const formattedHours = hours % 12 || 12
+  return `${formattedHours}:${minutes} ${period}`
+}
+
+// Get valid end time slots based on start time
+const getEndTimeSlots = (startTime) => {
+  const startIndex = timeSlots.indexOf(startTime)
+  return timeSlots.slice(startIndex + 1)
+}
+
+// Quick selection functions
+const setWeekdayAvailability = () => {
+  ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].forEach(day => {
+    form.value.availability[day] = {
+      enabled: true,
+      start: '09:00',
+      end: '17:00'
+    }
+  })
+}
+
+const setWeekendAvailability = () => {
+  ['saturday', 'sunday'].forEach(day => {
+    form.value.availability[day] = {
+      enabled: true,
+      start: '10:00',
+      end: '16:00'
+    }
+  })
+}
+
+const clearAvailability = () => {
+  weekDays.forEach(day => {
+    form.value.availability[day.value] = {
+      enabled: false,
+      start: '09:00',
+      end: '17:00'
+    }
+  })
+}
+
+// Enhanced validation for Step 4
+const isStep4Valid = computed(() => {
+  if (currentStep.value !== 4) return true
+  
+  const hasAvailability = Object.values(form.value.availability)
+    .some(day => day.enabled)
+  
+  const hasValidTimes = Object.values(form.value.availability)
+    .every(day => !day.enabled || (day.end > day.start))
+  
+  return (
+    form.value.timeZone &&
+    hasAvailability &&
+    hasValidTimes &&
+    form.value.noticePeriod !== ''
+  )
+})
+
+// Clear errors when fields are updated
+watch(() => form.value.timeZone, () => timeZoneError.value = '')
+watch(() => form.value.availability, () => availabilityError.value = '', { deep: true })
+watch(() => form.value.noticePeriod, () => noticePeriodError.value = '')
 </script>
 
 <style scoped>
 /* Add any component-specific styles here */
+.drag-over {
+  @apply border-blue-500;
+}
+
+.subject-search {
+  position: relative;
+}
+
+/* Add smooth transitions */
+.subject-tag-enter-active,
+.subject-tag-leave-active {
+  transition: all 0.3s ease;
+}
+
+.subject-tag-enter-from,
+.subject-tag-leave-to {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.schedule-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.time-select {
+  @apply block w-28 pl-3 pr-10 py-2 text-sm border-gray-300 focus:ring-blue-500 focus:border-blue-500 rounded-md;
+}
+
+.day-row {
+  @apply flex items-center space-x-4 p-3 rounded-lg transition-all duration-200;
+}
+
+.day-row-enabled {
+  @apply bg-blue-50;
+}
 </style>
 
