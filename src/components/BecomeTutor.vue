@@ -1,39 +1,32 @@
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
     <!-- Hero Section -->
-    <section class="max-w-7xl mx-auto px-4 py-12">
-      <div class="grid grid-cols-2 gap-8 items-center">
-        <!-- Left: Image placeholder -->
-        <div class="aspect-square bg-gray-100 rounded-lg p-8 flex items-center justify-center">
-          <!-- Teacher/Education themed SVG -->
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            class="w-full h-full text-gray-700"
-            fill="none" 
-            stroke="currentColor" 
-            stroke-width="2" 
-            stroke-linecap="round" 
-            stroke-linejoin="round"
-          >
-            <!-- Graduation Cap -->
-            <path d="M22 10L12 5 2 10l10 5 10-5v6" />
-            <path d="M6 12v5c0 2 3 4 6 4s6-2 6-4v-5" />
-            <!-- Book -->
-            <path d="M12 7v4" />
-            <!-- Teacher figure -->
-            <circle cx="12" cy="3" r="2" />
-            <path d="M12 5v2" />
-            <path d="M10 7h4" />
-          </svg>
+    <section class="w-full py-24">
+      <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 gap-12">
+        <!-- Left: Image -->
+        <div class="relative">
+          <div class="absolute -top-10 -left-10 w-20 h-20 text-emerald-500 animate-float">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <img 
+            src="https://illustrations.popsy.co/amber/genius.svg" 
+            alt="Teacher"
+            class="w-full h-auto"
+          />
         </div>
         
-        <!-- Right: Text and Button -->
-        <div class="flex flex-col items-start">
-          <div class="bg-gray-100 rounded-lg p-4 mb-4">
-            <p class="text-lg">some text</p>
+        <!-- Right: Text & Button -->
+        <div class="flex flex-col justify-center">
+          <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+            <p class="text-lg text-gray-700 leading-relaxed">
+              Join our community of expert educators and shape the future of learning. Share your knowledge, inspire students, and grow your teaching career.
+            </p>
           </div>
-          <button class="px-6 py-2 border-2 border-black rounded-md hover:bg-gray-100">
+          <button 
+            @click="showApplicationForm = true" 
+            class="mt-6 become-tutor px-8 py-3 text-base">
             JOIN US
           </button>
         </div>
@@ -41,68 +34,97 @@
     </section>
 
     <!-- Main Heading -->
-    <div class="text-center py-12">
-      <h1 class="text-4xl font-bold">Join us to become<br>a star Teacher</h1>
+    <div class="text-center py-12 relative">
+      <div class="absolute right-1/4 top-0 text-blue-500/20 animate-float-slow">
+        <svg class="w-24 h-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+          <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl font-bold mb-4">Join us to become<br>a star Teacher</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Transform lives through education while building your teaching career
+      </p>
     </div>
 
     <!-- SVG Section -->
-    <section class="border-t border-b border-gray-200">
-      <div class="max-w-7xl mx-auto px-4 py-12">
+    <section class="border-y border-gray-200/50 bg-gradient-to-r from-gray-50 to-gray-100">
+      <div class="max-w-7xl mx-auto px-4 py-16">
         <div class="grid grid-cols-3 gap-8">
-          <div class="col-span-1 bg-gray-100 rounded-lg"></div>
-          <div class="col-span-1 bg-gray-100 rounded-lg p-8 flex items-center justify-center">
-            <h2 class="text-2xl font-bold">A online<br>SVG</h2>
+          <div class="flex justify-center">
+            <img 
+              src="https://illustrations.popsy.co/amber/remote-work.svg" 
+              alt="Remote Work"
+              class="w-48 h-48"
+            />
           </div>
-          <div class="col-span-1 bg-gray-100 rounded-lg"></div>
+          <div class="flex flex-col items-center justify-center text-center">
+            <h2 class="text-2xl font-bold">A online<br>Teaching Platform</h2>
+            <p class="mt-4 text-gray-600">Connect with students worldwide</p>
+          </div>
+          <div class="flex justify-center">
+            <img 
+              src="https://illustrations.popsy.co/teal/work-from-home.svg" 
+              alt="Student"
+              class="w-48 h-48"
+            />
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Top Teachers Section -->
-    <section class="py-12">
+    <section class="py-16">
+      <h2 class="text-2xl font-bold text-center mb-12">Top Teachers</h2>
       <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center mb-8">Top Teachers</h2>
-        <div class="grid grid-cols-4 gap-8 mb-8">
-          <div v-for="i in 4" :key="i" class="flex flex-col items-center">
-            <div class="w-full aspect-square bg-gray-100 rounded-lg mb-2"></div>
-            <span class="text-center">name</span>
+        <div class="grid grid-cols-4 gap-8">
+          <div v-for="i in 4" :key="i" class="group">
+            <div class="relative w-20 h-20 mx-auto">
+              <img 
+                :src="`https://i.pravatar.cc/300?img=${i+29}`"
+                alt="Teacher"
+                class="w-full h-full rounded-full object-cover border-2 border-emerald-500/30 group-hover:border-emerald-500 transition-all duration-300"
+              />
+              <div class="absolute inset-0 rounded-full bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-all duration-300"></div>
+            </div>
+            <p class="mt-4 text-center font-medium">Sarah Johnson</p>
           </div>
         </div>
-        <div class="flex justify-center">
-          <button class="px-6 py-2 border-2 border-black rounded-md hover:bg-gray-100">
+        <div class="text-center mt-12">
+          <button 
+            @click="router.push('/TopTeachers')" 
+            class="view-all">
             View All
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Tutor Reviews Section -->
-    <section class="py-12">
-      <div class="max-w-7xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center mb-8">Tutor Reviews</h2>
-        <div class="relative">
-          <div class="bg-gray-100 rounded-lg p-8 mb-2">
-            <p class="text-lg mb-4">Teacher review shows here</p>
-            <p class="text-right">teacher name</p>
+    <!-- Reviews Section -->
+    <section class="py-16 bg-gradient-to-b from-white to-gray-50">
+      <h2 class="text-2xl font-bold text-center mb-12">Tutor Reviews</h2>
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="bg-white rounded-2xl p-8 shadow-lg relative">
+          <div class="absolute -top-4 -left-4">
+            <svg class="w-8 h-8 text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
           </div>
-          <div class="absolute right-0 top-0 text-sm">
-            changes every<br>10 seconds
-          </div>
+          <p class="text-gray-700 text-lg mb-4">
+            "Teaching on this platform has been an amazing experience. The students are eager to learn and the support system is excellent!"
+          </p>
+          <p class="text-right text-gray-600">- Professor Smith</p>
         </div>
       </div>
     </section>
 
     <!-- Bottom Buttons -->
-    <section class="py-12">
+    <section class="py-16">
       <div class="max-w-7xl mx-auto px-4 flex justify-center gap-8">
         <button 
-          @click="showApplicationForm = true"
-          class="px-6 py-2 border-2 border-black rounded-md hover:bg-gray-100">
-          Become a tutor
-        </button>
-        <button class="px-6 py-2 border-2 border-black rounded-md hover:bg-gray-100">
-          Know More
-        </button>
+            @click="showApplicationForm = true" 
+            class="mt-6 become-tutor px-8 py-3 text-base">Become a tutor</button>
+        <button class="mt-6 become-tutor px-8 py-3 know-more">Know More</button>
       </div>
     </section>
 
@@ -1801,42 +1823,91 @@ const returnToHome = () => {
 </script>
 
 <style scoped>
+/* Base Layout */
+.min-h-screen {
+  background: linear-gradient(to bottom right, rgb(249, 250, 251), rgb(243, 244, 246));
+}
+
+/* Hero Section */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* SVG Container Enhancement */
+.aspect-square {
+  position: relative;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  transition: transform 0.3s ease;
+}
+
+.aspect-square:hover {
+  transform: translateY(-5px);
+}
+
+.aspect-square svg {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Text Container */
+.bg-gray-100 {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -1px rgba(16, 185, 129, 0.3);
+}
+
 /* Modal Overlay */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: 40;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(75px);
+  z-index: 40;
   transition: all 0.3s ease;
 }
 
-/* Form Container */
+/* Application Form Container */
 .application-form {
   position: fixed;
   inset: 0;
   z-index: 50;
   overflow-y: auto;
   display: flex;
-  align-items: flex-start; /* Changed from center to flex-start */
+  align-items: flex-start;
   justify-content: center;
   padding: 1rem;
-  margin-top: 64px; /* Adjust this value to match your navbar height */
+  margin-top: 64px;
 }
 
 .form-container {
   position: relative;
   width: 100%;
-  max-width: 48rem; /* 3xl in Tailwind */
+  max-width: 48rem;
   background: white;
   border-radius: 0.75rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   transform: translateY(0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 2rem; /* Add some space at the bottom */
+  margin-bottom: 2rem;
 }
 
-/* Modal Enter/Leave Transitions */
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Modal Transitions */
 .modal-enter-active,
 .modal-leave-active {
   transition: all 0.3s ease;
@@ -1851,6 +1922,35 @@ const returnToHome = () => {
 .modal-leave-to .form-container {
   transform: translateY(20px);
   opacity: 0;
+}
+
+/* Teacher Cards */
+.aspect-square.bg-gray-100 {
+  transition: all 0.3s ease;
+}
+
+.aspect-square.bg-gray-100:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Review Section */
+.bg-gray-100.rounded-lg {
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.bg-gray-100.rounded-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Headings */
+h1, h2 {
+  background: linear-gradient(to right, #111827, #374151);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Form Steps */
@@ -1996,5 +2096,62 @@ const returnToHome = () => {
 .text-coral,
 .bg-coral-light {
   display: none;
+}
+
+/* Button Styling - Main Page Only */
+.min-h-screen > section button:not(.form-container button) {
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #10B981, #059669);
+  color: white;
+  border: none;
+  border-radius: 9999px; /* Makes buttons fully rounded */
+  padding: 0.75rem 2rem; /* Adjusted padding for rounded buttons */
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+
+.min-h-screen > section button:not(.form-container button):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -1px rgba(16, 185, 129, 0.3);
+}
+
+/* Adjusted Button Styling */
+button.become-tutor {
+  width: fit-content; /* Instead of full width */
+  align-self: center; /* Center the button */
+  font-size: 1rem; /* Smaller font size */
+  padding: 0.75rem 2rem; /* Reduced padding */
+  background: linear-gradient(to right, #10B981, #059669);
+  color: white;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+}
+
+button.become-tutor:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -1px rgba(16, 185, 129, 0.3);
+}
+
+/* View All Button Specific Style */
+button[class*="view-all"] {
+  border-radius: 9999px !important;
+  padding: 0.75rem 2.5rem !important;
+}
+
+/* Know More Button Specific Style */
+button[class*="know-more"] {
+  border-radius: 9999px !important;
+  padding: 0.75rem 2.5rem !important;
+}
+
+/* Become a Tutor Button Specific Style */
+button[class*="become-tutor"] {
+  border-radius: 9999px !important;
+  padding: 0.75rem 2.5rem !important;
+}
+
+/* Keep form buttons unchanged */
+.form-container button {
+  border-radius: 0.5rem; /* Keep original form button styling */
 }
 </style>
