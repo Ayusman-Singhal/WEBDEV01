@@ -34,22 +34,14 @@
       </div>
     </section>
 
-    <!-- SVG Section -->
+       <!-- SVG Section -->
     <section class="section-dark py-5">
       <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-3 gap-8">
-          <!-- Left blurred column
-          <div class="bg-white/30 backdrop-blur-md rounded-2xl p-8 text-center">
-          </div> -->
-
+        <div class="flex justify-center items-center">
           <!-- Middle SVG -->
-          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 align-center">
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 w-1/3">
             <img src="../assets/svg/svg02.svg" alt="Online Teaching" class="w-full h-auto"/>
-            </div>
-
-          <!-- Right blurred column
-          <div class="bg-white/30 backdrop-blur-md rounded-2xl p-8 text-center">
-          </div> -->
+          </div>
         </div>
       </div>
     </section>
