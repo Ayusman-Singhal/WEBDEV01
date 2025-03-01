@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import HelloWorld from './components/HelloWorld.vue';
 import About from './components/About.vue';
 import RequestTutor from './components/RequestTut.vue';
@@ -13,6 +13,8 @@ import Careers from './views/Careers.vue';
 import FAQ from './components/FAQ.vue';
 
 const routes = [
+    // Add a default route that redirects to home
+    { path: '/', redirect: '/home' },
     { path: '/home', component: HelloWorld, name: 'HelloWorld' },
     { path: '/about', component: About, name: 'About' },
     { path: '/requestTutor', component: RequestTutor, name: 'RequestTutor' },
@@ -40,11 +42,14 @@ const routes = [
         path: '/faq',
         name: 'FAQ',
         component: FAQ
-    }
+    },
+    // Catch-all route for 404 pages
+    { path: '/:pathMatch(.*)*', redirect: '/home' }
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
+    // Use hash mode for GitHub Pages compatibility
+    history: createWebHashHistory(import.meta.env.BASE_URL || '/WEBDEV01/'),
     routes,
 });
 
@@ -52,14 +57,13 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const isAuthenticated = localStorage.getItem('isAuthenticated') // You'll need to set this on login
     const userType = localStorage.getItem('userType') // 'teacher' or 'student'
-
     // If route requires auth and user isn't authenticated
     if (to.meta.requiresAuth && !isAuthenticated) {
         next({ name: 'Login' })
     }
     // If route is teacher-only and user isn't a teacher
     else if (to.meta.teacherOnly && userType !== 'teacher') {
-        next({ name: 'Home' })
+        next({ name: 'HelloWorld' })
     }
     else {
         next()
