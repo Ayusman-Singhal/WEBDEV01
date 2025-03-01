@@ -272,7 +272,7 @@
 
             <!-- Write Review Button - Moved here -->
             <div class="mt-8 text-center">
-              <a href="https://forms.gle/QCohMjxFrqyAr7Lc6" 
+              <a href="" 
                  target="_blank"
                  class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-400 text-white rounded-xl 
                         shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 relative group">
