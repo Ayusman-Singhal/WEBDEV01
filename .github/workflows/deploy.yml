@@ -5,6 +5,10 @@ on:
     branches: [ main ]  # Set this to your default branch name (main or master)
   workflow_dispatch:    # Allows manual triggering of the workflow
 
+# Set permissions for GitHub token
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -20,12 +24,6 @@ jobs:
           
       - name: Install dependencies
         run: npm ci  # Use 'npm ci' for clean install
-      
-      - name: Install some more
-        run: npm install vue-router
-
-      - name: Install one more
-        run: npm install axios
         
       - name: Build Vue app
         run: npm run build
@@ -35,4 +33,6 @@ jobs:
         with:
           folder: dist  # The folder the action will deploy, default for Vue
           branch: gh-pages  # The branch the action should deploy to
-          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub automatically provides this token
+          clean: true  # Automatically remove deleted files from the deploy branch
+          force: true  # Force the deployment
+          attempt-limit: 3  # Try up to 3 times if deployment fails
