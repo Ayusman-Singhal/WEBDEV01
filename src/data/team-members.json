@@ -9,7 +9,7 @@
   ],
   "members": [
     {
-      "name": "Aditya Ranjan",
+      "name": "John Smith",
       "role": "Co-Founder & CEO",
       "category": "Founders",
       "image": "src/assets/team_members/ceo.png",
@@ -17,7 +17,7 @@
       "linkedin": "https://linkedin.com/in/johnsmith"
     },
     {
-      "name": "Ayusman Singhal",
+      "name": "Sarah Jhonson",
       "role": "CTO",
       "category": "Product & Tech",
       "image": "src/assets/team_members/cto.png",
