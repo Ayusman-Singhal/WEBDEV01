@@ -13,7 +13,7 @@ import Careers from './views/Careers.vue';
 import FAQ from './components/FAQ.vue';
 
 const routes = [
-    { path: '/', component: HelloWorld, name: 'HelloWorld' },
+    { path: '/home', component: HelloWorld, name: 'HelloWorld' },
     { path: '/about', component: About, name: 'About' },
     { path: '/requestTutor', component: RequestTutor, name: 'RequestTutor' },
     { path: '/becomeTutor', component: BecomeTutor, name: 'BecomeTutor' },
